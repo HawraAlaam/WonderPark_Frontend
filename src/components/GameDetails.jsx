@@ -23,16 +23,16 @@ const GameDetails = ({ games, setGames }) => {
     <>
       <div className="detail">
         <div className="detail-header">
-          <img src={game.img} alt={game.name} />
+          <img src={game.image} alt={game.name} />
           <div className="listing-name">
             <h1>{game.name}</h1>
           </div>
         </div>
         <div className="info-wrapper">
           <div className="listing-header">
-            <h3>Rating: {game.rating}</h3>
+            <h3>Rating: {game.rating || "No rating yet" }</h3>
           </div>
-          <p>{game.description}</p>
+          <p className="description">{game.description}</p>
           <ReviewForm reviews={reviews} setReviews={setReviews} gameId={id}/>
           <div className="reviews-section">
             <h3>Reviews:</h3>
