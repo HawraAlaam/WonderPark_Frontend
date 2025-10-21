@@ -5,7 +5,7 @@ import ReviewForm from "./ReviewForm"
 const GameDetails = ({ games, setGames }) => {
   const { id } = useParams()
   const [game, setGame] = useState(null)
-  const [reviews,setReviews]=useState([])
+  const [reviews, setReviews] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -23,25 +23,25 @@ const GameDetails = ({ games, setGames }) => {
     <>
       <div className="detail">
         <div className="detail-header">
-          <img src={game.image} alt={game.name} />
+          <img src={game.img} alt={game.name} />
           <div className="listing-name">
             <h1>{game.name}</h1>
           </div>
         </div>
         <div className="info-wrapper">
           <div className="listing-header">
-            <h3>Rating: {game.rating || "No rating yet" }</h3>
+            <h3>Rating: {game.rating || "No rating yet"}</h3>
           </div>
           <p className="description">{game.description}</p>
-          <ReviewForm reviews={reviews} setReviews={setReviews} gameId={id}/>
+          <ReviewForm reviews={reviews} setReviews={setReviews} gameId={id} />
           <div className="reviews-section">
             <h3>Reviews:</h3>
-            {reviews.length > 0?(
-              reviews.map((review,i)=>(
+            {reviews.length > 0 ? (
+              reviews.map((review, i) => (
                 <div key={i}>
                   <p>Rating:{review.rating}</p>
                   <p>{review.comment}</p>
-                  </div>
+                </div>
               ))
             ) : (
               <p>No reviews yet</p>
@@ -49,7 +49,7 @@ const GameDetails = ({ games, setGames }) => {
           </div>
         </div>
       </div>
-    <button onClick={handleDelete}>Delete</button>
+      <button onClick={handleDelete}>Delete</button>
       <Link to="/">Back</Link>
     </>
   ) : (
