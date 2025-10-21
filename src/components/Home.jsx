@@ -9,8 +9,9 @@ const Home = ({ games }) => {
           {games.map((game) => (
             <div key={game.id}>
               <Link to={`/games/${game.id}`}>
-                <img src={game.img} alt={game.name} />
+                <img src={game.image} alt={game.name} />
                 <h3>{game.name}</h3>
+                <p>Rating: {game.rating || "No rating yet"}</p>
               </Link>
             </div>
           ))}

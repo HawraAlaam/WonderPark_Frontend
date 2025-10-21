@@ -4,8 +4,7 @@ const GameForm = ({ addGame, newGame, handleChange }) => {
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
-    e.preventDefault()
-    addGame(game)
+    addGame(e)
     navigate("/")
   }
 
@@ -14,7 +13,7 @@ const GameForm = ({ addGame, newGame, handleChange }) => {
   return (
     <div>
       <h1>Add A New Game</h1>
-      <form onSubmit={addGame}>
+      <form onSubmit={handleSubmit}>
         <input
           type="text"
           value={game.name}
@@ -36,15 +35,15 @@ const GameForm = ({ addGame, newGame, handleChange }) => {
           placeholder="Description"
         />
         <select
-          name="rating"
-          value={game.rating}
+          name="category"
+          value={game.category}
           onChange={handleChange}>
-            <option value="">Select Rating</option>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-            <option value="4">4</option>
-            <option value="5">5</option>
+            <option value="">Select Category</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Action">Action</option>
+              <option value="Puzzle">Puzzle</option>
+              <option value="Sports">Sports</option>
+              <option value="Simulation">Simulation</option>
             </select>
 
         <button type="submit">Submit</button>

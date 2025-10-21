@@ -23,7 +23,7 @@ const GameDetails = ({ games, setGames }) => {
     <>
       <div className="detail">
         <div className="detail-header">
-          <img src={game.img} alt={game.name} />
+          <img src={game.image} alt={game.name} />
           <div className="listing-name">
             <h1>{game.name}</h1>
           </div>
