@@ -1,9 +1,11 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
+import ReviewForm from "./ReviewForm"
 
 const GameDetails = ({ games, setGames }) => {
   const { id } = useParams()
   const [game, setGame] = useState(null)
+  const [reviews,setReviews]=useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
@@ -31,9 +33,23 @@ const GameDetails = ({ games, setGames }) => {
             <h3>Rating: {game.rating}</h3>
           </div>
           <p>{game.description}</p>
-          <button onClick={handleDelete}>Delete</button>
+          <ReviewForm reviews={reviews} setReviews={setReviews} gameId={id}/>
+          <div className="reviews-section">
+            <h3>Reviews:</h3>
+            {reviews.length > 0?(
+              reviews.map((review,i)=>(
+                <div key={i}>
+                  <p>Rating:{review.rating}</p>
+                  <p>{review.comment}</p>
+                  </div>
+              ))
+            ) : (
+              <p>No reviews yet</p>
+            )}
+          </div>
         </div>
       </div>
+    <button onClick={handleDelete}>Delete</button>
       <Link to="/">Back</Link>
     </>
   ) : (
