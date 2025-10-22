@@ -2,3 +2,22 @@ body {
   margin: 0;
   box-sizing: border-box;
 }
+
+.detail-header img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+  margin: 0 auto;
+}
+
+.home img {
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+  display: block;
+  margin: 10px auto;
+}
+

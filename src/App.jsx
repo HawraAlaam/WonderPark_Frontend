@@ -8,6 +8,7 @@ import Home from "./components/Home"
 import Nav from "./components/Nav"
 import GameDetails from "./components/GameDetails"
 import AddGames from "./components/AddGames"
+import About from "./components/About"
 
 import "./App.css"
 
@@ -17,6 +18,7 @@ const App = () => {
     name: "",
     img: "",
     description: "",
+    category:"",
     rating: "",
   }
 
@@ -48,6 +50,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<Home games={games} />} />
           <Route path="/games/:id" element={<GameDetails games={games} setGames={setGames}/>} />
+          <Route path="/about" element={<About/>}/>
           <Route
             path="/new"
             element={
