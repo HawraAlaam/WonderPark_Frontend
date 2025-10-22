@@ -1,11 +1,38 @@
 const About = () => {
   return (
-    <main>
-      <h2>Welcome to WonderPark — the ultimate destination for fun, imagination, and adventure!
-        At WonderPark, we believe in creating experiences that bring joy to everyone — from thrilling rides and interactive games to creative attractions and family-friendly entertainment. Our goal is to make every moment magical and memorable.
-        Discover a world where creativity meets excitement, where every ride tells a story, and where laughter never ends. Whether you're here to play, explore, or relax, WonderPark is a place where wonder truly comes to life.
-        Join us and experience the magic — only at WonderPark!</h2>
-    </main>
+    <div className="about-container">
+      <h1 className="about-header">Welcome to WonderPark! 🎢</h1>
+
+      <div className="about-content">
+        <div className="about-text">
+          <p>🌟 <strong>WonderPark</strong> is your ultimate destination for <span style={{color: '#FF5722'}}>FUN, ADVENTURE, and MAGICAL MEMORIES!</span></p>
+
+          <p>🎯 Where every visit becomes an unforgettable journey through imagination and excitement!</p>
+        </div>
+
+        <div className="about-features">
+          <div className="feature">🎮 Thrilling Rides & Games</div>
+          <div className="feature">🎨 Creative Activities</div>
+          <div className="feature">👨‍👩‍👧‍👦 Family Fun</div>
+          <div className="feature">🎪 Live Entertainment</div>
+        </div>
+
+        <div className="about-text">
+          <p>✨ Discover a world where:</p>
+          <ul style={{textAlign: 'left', marginLeft: '2rem', color: '#5D4037'}}>
+            <li>Every ride tells an exciting story</li>
+            <li>Laughter fills the air</li>
+            <li>Creativity meets adventure</li>
+            <li>Memories are made every minute!</li>
+          </ul>
+        </div>
+
+        <div className="about-cta">
+          🎉 JOIN THE FUN TODAY! 🎉<br />
+          Where Wonder Comes to Life!
+        </div>
+      </div>
+    </div>
   )
 }
 

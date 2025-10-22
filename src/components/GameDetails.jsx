@@ -29,7 +29,7 @@ const GameDetails = ({ games, setGames }) => {
     <>
       <div className="detail">
         <div className="detail-header">
-          <img src={game.image} alt={game.name} />
+          <img src={game.img} alt={game.name} />
           <div className="listing-name">
             <h1>{game.name}</h1>
           </div>
@@ -55,8 +55,10 @@ const GameDetails = ({ games, setGames }) => {
           </div>
         </div>
       </div>
-      <button onClick={handleDelete}>Delete</button>
-      <Link to="/games">Back</Link>
+      <button onClick={handleDelete} className="btn-delete">Delete</button>
+      <Link to="/games">
+        <button type="button" className="btn-back">Back</button>
+      </Link>
     </>
   ) : (
     <h2>Game not found</h2>
