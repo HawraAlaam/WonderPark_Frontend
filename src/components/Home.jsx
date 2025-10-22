@@ -23,7 +23,7 @@ const Home = ({ games, setGames }) => {
         {games.map((game) => (
           <div key={game._id} className="game-card">
             <Link to={`/games/${game._id}`}>
-              <img src={game.image} alt={game.name} />
+              <img src={game.img} alt={game.name} />
               <h3>{game.name}</h3>
             </Link>
           </div>

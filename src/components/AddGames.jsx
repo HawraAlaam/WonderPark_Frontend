@@ -66,10 +66,9 @@ const AddGames = ({ games, setGames }) => {
           <option value="Action">Action</option>
           <option value="Puzzle">Puzzle</option>
           <option value="Sports">Sports</option>
-          <option value="Simulation">Simulation</option>
         </select>
 
-        <button type="submit">Submit</button>
+        <button type="submit" className="btn-submit">Submit</button>
       </form>
     </div>
   );

@@ -47,7 +47,7 @@ const ReviewForm = ({ reviews, setReviews, gameId }) => {
         placeholder="Write your comment here.."
       ></textarea>
 
-      <button type="submit">Submit Review</button>
+      <button type="submit" className="btn-submit">Submit Review</button>
     </form>
   )
 }
