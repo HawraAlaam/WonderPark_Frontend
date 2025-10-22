@@ -35,8 +35,8 @@ const ReviewForm=({reviews,setReviews,gameId})=>{
       <label htmlFor="comment">Comment:</label>
       <textarea name="comment" onChange={handleChange} value={formState.comment} placeholder="Write your comment here.."></textarea>
 
-      <button type="submit">Submit Review</button>
-    </form>
+     <button type="submit">Submit Review</button>
+     </form>
   )
 }
 

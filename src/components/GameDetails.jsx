@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
 import ReviewForm from "./ReviewForm"
+import "../App.css"
 
 const GameDetails = ({ games, setGames }) => {
   const { id } = useParams()
@@ -30,7 +31,6 @@ const GameDetails = ({ games, setGames }) => {
         </div>
         <div className="info-wrapper">
           <div className="listing-header">
-            <h3>Rating: {game.rating || "No rating yet"}</h3>
           </div>
           <p className="description">{game.description}</p>
           <ReviewForm reviews={reviews} setReviews={setReviews} gameId={id} />
