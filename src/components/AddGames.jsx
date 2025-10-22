@@ -34,14 +34,19 @@ const GameForm = ({ addGame, newGame, handleChange }) => {
           name="description"
           placeholder="Description"
         />
-        <input
-          type="text"
-          value={game.rating}
-          onChange={handleChange}
-          name="rating"
-          placeholder="Rating"
-        />
-        <button>Submit</button>
+        <select
+          name="category"
+          value={game.category}
+          onChange={handleChange}>
+            <option value="">Select Category</option>
+              <option value="Adventure">Adventure</option>
+              <option value="Action">Action</option>
+              <option value="Puzzle">Puzzle</option>
+              <option value="Sports">Sports</option>
+              <option value="Simulation">Simulation</option>
+            </select>
+
+        <button type="submit">Submit</button>
       </form>
     </div>
   )

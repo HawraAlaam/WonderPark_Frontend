@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom"
+import "../App.css"
 
 const Home = ({ games }) => {
   return (
@@ -9,7 +10,7 @@ const Home = ({ games }) => {
           {games.map((game) => (
             <div key={game.id}>
               <Link to={`/games/${game.id}`}>
-                <img src={game.img} alt={game.name} />
+                <img src={game.image} alt={game.name} />
                 <h3>{game.name}</h3>
               </Link>
             </div>
