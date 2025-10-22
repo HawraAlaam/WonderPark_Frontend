@@ -1,23 +1,28 @@
 import { useEffect, useState } from "react"
 import { Link, useNavigate, useParams } from "react-router-dom"
+import axios from "axios"
 import ReviewForm from "./ReviewForm"
 import "../App.css"
 
 const GameDetails = ({ games, setGames }) => {
   const { id } = useParams()
-  const [game, setGame] = useState(null)
+  const [game, setGame] = useState("")
   const [reviews, setReviews] = useState([])
   const navigate = useNavigate()
 
   useEffect(() => {
-    const selectedGame = games.find((game) => String(game.id) === id)
+    let selectedGame = games.find((game) => game._id.toString() === id)
+    console.log(id)
     setGame(selectedGame)
-  }, [id, games])
+  }, [])
 
-  const handleDelete = () => {
-    const updatedGames = games.filter((game) => String(game.id) !== id)
-    setGames(updatedGames)
-    navigate("/")
+  const handleDelete = async () => {
+    try {
+      await axios.delete(`http://localhost:3000/games/${id}`)
+      navigate("/games")
+    } catch (error) {
+      console.error("Error deleting game:", error)
+    }
   }
 
   return game ? (
@@ -30,16 +35,17 @@ const GameDetails = ({ games, setGames }) => {
           </div>
         </div>
         <div className="info-wrapper">
-          <div className="listing-header">
-          </div>
           <p className="description">{game.description}</p>
+          <p>
+            <strong>Category:</strong> {game.category}
+          </p>
           <ReviewForm reviews={reviews} setReviews={setReviews} gameId={id} />
           <div className="reviews-section">
             <h3>Reviews:</h3>
             {reviews.length > 0 ? (
               reviews.map((review, i) => (
                 <div key={i}>
-                  <p>Rating:{review.rating}</p>
+                  <p>Rating: {review.rating}</p>
                   <p>{review.comment}</p>
                 </div>
               ))
@@ -50,7 +56,7 @@ const GameDetails = ({ games, setGames }) => {
         </div>
       </div>
       <button onClick={handleDelete}>Delete</button>
-      <Link to="/">Back</Link>
+      <Link to="/games">Back</Link>
     </>
   ) : (
     <h2>Game not found</h2>

@@ -1,15 +1,13 @@
-import { useState } from "react";
-import { Routes, Route } from "react-router-dom";
+import { useState } from "react"
+import { Routes, Route } from "react-router-dom"
 
-import gamesArray from "./data/games";
+import Home from "./components/Home"
+import Nav from "./components/Nav"
+import GameDetails from "./components/GameDetails"
+import AddGames from "./components/AddGames"
+import About from "./components/About"
 
-import Home from "./components/Home";
-import Nav from "./components/Nav";
-import GameDetails from "./components/GameDetails";
-import AddGames from "./components/AddGames";
-import About from "./components/About";
-
-import "./App.css";
+import "./App.css"
 
 const App = () => {
   const emptyGame = {
@@ -19,24 +17,24 @@ const App = () => {
     description: "",
     category: "",
     rating: "",
-  };
+  }
 
-  const [games, setGames] = useState(gamesArray);
-  const [newGame, setNewGame] = useState(emptyGame);
+  const [games, setGames] = useState([])
+  const [newGame, setNewGame] = useState(emptyGame)
 
   const addGame = (e) => {
-    e.preventDefault();
+    e.preventDefault()
     const createdGame = {
       ...newGame,
       id: games.length + 1,
-    };
-    setGames([...games, createdGame]);
-    setNewGame(emptyGame);
-  };
+    }
+    setGames([...games, createdGame])
+    setNewGame(emptyGame)
+  }
 
   const handleChange = (e) => {
-    setNewGame({ ...newGame, [e.target.name]: e.target.value });
-  };
+    setNewGame({ ...newGame, [e.target.name]: e.target.value })
+  }
 
   return (
     <>
@@ -45,8 +43,15 @@ const App = () => {
       </header>
       <main>
         <Routes>
-          <Route path="/" element={<Home games={games} />} />
-          <Route path="/games/:id" element={<GameDetails games={games} />} />
+          {/* <Route path="/" element={<Home />}/> */}
+          <Route
+            path="/games"
+            element={<Home games={games} setGames={setGames} />}
+          />
+          <Route
+            path="/games/:id"
+            element={<GameDetails games={games} setGames={setGames} />}
+          />
           <Route path="/about" element={<About />} />
           <Route
             path="/new"
@@ -63,7 +68,7 @@ const App = () => {
         </Routes>
       </main>
     </>
-  );
-};
+  )
+}
 
-export default App;
+export default App

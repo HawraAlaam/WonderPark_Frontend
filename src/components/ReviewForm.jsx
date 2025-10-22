@@ -15,7 +15,7 @@ const ReviewForm = ({ reviews, setReviews, gameId }) => {
 
   const handleSubmit = async (event) => {
     event.preventDefault()
-    const response = await axios.post("http://localhost:3000/ratings", {
+    const response = await axios.post('http://localhost:3000/ratings', {
       ...formState,
       game: gameId,
     })
@@ -23,7 +23,6 @@ const ReviewForm = ({ reviews, setReviews, gameId }) => {
     reviewList.push(response.data)
     setReviews([...reviews, response.data])
     setFormState(initialState)
-
   }
 
   return (

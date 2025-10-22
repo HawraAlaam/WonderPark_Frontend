@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
-const GameForm = ({ games, setGames }) => {
+const AddGames = ({ games, setGames }) => {
   const navigate = useNavigate();
 
   const initialState = {
@@ -22,9 +22,11 @@ const GameForm = ({ games, setGames }) => {
     e.preventDefault();
     try {
       const response = await axios.post("http://localhost:3000/games", formState);
-      setGames([...games, response.data]);
+      let gameList = [...games]
+      gameList.push(response.data)
+      setGames(gameList);
       setFormState(initialState);
-      navigate("/");
+      navigate("/games");
     } catch (error) {
       console.error("Error creating game:", error);
     }
@@ -73,4 +75,4 @@ const GameForm = ({ games, setGames }) => {
   );
 };
 
-export default GameForm;
+export default AddGames;
